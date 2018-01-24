@@ -2,13 +2,13 @@
 
 namespace App\Events;
 
-use App\User;
 use App\Message;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Foundation\Events\Dispatchable;
+use App\User;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class MessageSent implements ShouldBroadcastNow
 {
@@ -27,7 +27,7 @@ class MessageSent implements ShouldBroadcastNow
     /**
      * MessageSent constructor.
      *
-     * @param User $user
+     * @param User    $user
      * @param Message $message
      */
     public function __construct(User $user, Message $message)

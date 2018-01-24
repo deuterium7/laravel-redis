@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Message;
 use App\Events\MessageSent;
+use App\Message;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -45,6 +45,7 @@ class ChatController extends Controller
      * Отправить сообщение.
      *
      * @param Request $request
+     *
      * @return array
      */
     public function sendMessage(Request $request)
