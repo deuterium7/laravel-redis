@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\Events\MessageSent;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -40,11 +41,17 @@ class ChatController extends Controller
         return Message::with('user')->get();
     }
 
+    /**
+     * Отправить сообщение.
+     *
+     * @param Request $request
+     * @return array
+     */
     public function sendMessage(Request $request)
     {
         $user = auth()->user();
         $message = $user->messages()->create([
-            'message' => $request->input('message')
+            'message' => $request->input('message'),
         ]);
 
         broadcast(new MessageSent($user, $message))->toOthers();
